@@ -41,7 +41,7 @@ React Router	Managing navigation across pages
 
 🚀 How to Run Locally
 Clone the repository:
-git clone https://github.com/yourusername/health-information-system-frontend.git
+git clone https://MakiniFab/health-information-system-frontend.git
 cd health-information-system-frontend
 Install dependencies:
 
