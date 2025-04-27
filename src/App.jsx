@@ -4,6 +4,7 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Clients from './components/Clients';
 import Programs from './components/Programs';
+import ClientProfile from './components/ClientProfile';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/programs" element={<Programs />} />
+          <Route path="/clients/:clientId" element={<ClientProfile />} />
         </Routes>
       </div>
     </Router>

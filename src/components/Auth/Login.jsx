@@ -26,7 +26,7 @@ function Login() {
       const token = response.data.access_token;
       localStorage.setItem('token', token);
       alert('Login successful!');
-      navigate("/dashboard")
+      navigate("/clients")
     } catch (error) {
       console.error('Login Error:', error);
       alert('Login failed. Check your username and password.');

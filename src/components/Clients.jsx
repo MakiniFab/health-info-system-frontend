@@ -14,7 +14,6 @@ const Clients = () => {
     }
   }, [token]);
 
-  // Fetch clients from the backend
   const fetchClients = async () => {
     try {
       const response = await axios.get('https://health-info-system-backend.onrender.com/clients', {
@@ -30,7 +29,6 @@ const Clients = () => {
     }
   };
 
-  // Create a new client
   const createClient = async (e) => {
     e.preventDefault();
     if (!newClient.name.trim() || !newClient.age.trim()) {
@@ -53,7 +51,6 @@ const Clients = () => {
     }
   };
 
-  // Filter clients based on search
   const filteredClients = clients.filter((client) =>
     client.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -113,8 +110,10 @@ const Clients = () => {
         <ul className="space-y-2">
           {filteredClients.map((client) => (
             <li key={client.id} className="p-4 border rounded shadow-sm">
-              <p><span className="font-semibold">Name:</span> {client.name}</p>
-              <p><span className="font-semibold">Age:</span> {client.age}</p>
+              <Link to={`/clients/${client.id}`}>
+                <p className="font-semibold">{client.name}</p>
+              </Link>
+              <p>Age: {client.age}</p>
             </li>
           ))}
         </ul>
