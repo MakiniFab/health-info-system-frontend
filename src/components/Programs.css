@@ -55,8 +55,8 @@ body {
   }
   
   .programs-div-input-div {
-    display: flex;
-    gap: 16px;
+    display: grid;
+    gap: 6px;
     margin-bottom: 20px;
   }
   

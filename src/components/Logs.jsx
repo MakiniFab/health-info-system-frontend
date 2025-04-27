@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./Logs.css"
 
 const Logs = () => {
   const [logs, setLogs] = useState([]);
@@ -44,16 +45,15 @@ const Logs = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Logs</h2>
+    <div className="logs-div">
+      <h2 className="logs-div-h2">Logs</h2>
 
-      {/* Display logs */}
       {logs.length === 0 ? (
-        <p className="text-gray-500">No logs available for your account.</p>
+        <p className="logs-div-p">No logs available for your account.</p>
       ) : (
-        <ul className="space-y-4">
+        <ul className="logs-div-ul">
           {logs.map((log, index) => (
-            <li key={index} className="p-4 border rounded shadow-sm">
+            <li key={index} className="logs-div-li">
               <p><strong>Action:</strong> {log.action}</p>
               <p><strong>Doctor:</strong> {log.doctor}</p>
               <p><strong>Timestamp:</strong> {new Date(log.timestamp).toLocaleString()}</p>

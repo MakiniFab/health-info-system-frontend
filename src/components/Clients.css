@@ -212,4 +212,34 @@ body {
     text-decoration: underline;
   }
   
+  .clients-div-toggle-logs-button {
+    background-color: #4CAF50;
+    position: fixed;
+    top: 30px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 70px;
+    width: 70px;
+    padding-left: 10px;
+  }
+  
+  .clients-div-toggle-logs-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  .clients-div-toggle-logs-button:focus {
+    outline: none;
+  }
+
+.clients-div-toggle-logs-div {
+  position: relative;
+    top: -166px;
+    left: -90px;
+}
   

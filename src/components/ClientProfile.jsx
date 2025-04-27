@@ -111,6 +111,12 @@ const ClientProfile = () => {
     return <p>Loading client profile...</p>;
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    alert('Logged out successfully');
+    navigate("/");
+  };
+
   return (
     <div className='profile-div' >
       <h2 className='profile-div-h2' >Client Profile</h2>
@@ -171,6 +177,15 @@ const ClientProfile = () => {
         ></textarea>
 
         <button className='profile-div-outcome-div-button' onClick={addOutcome}>Add Outcome</button>
+      </div>
+
+      <div className="clients-div-logout">
+        <button
+          onClick={handleLogout}
+          className="clients-div-logout-button"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

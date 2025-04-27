@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import "./Programs.css"
+import { useNavigate } from 'react-router-dom';
 
 const Programs = () => {
   const [programs, setPrograms] = useState([]);
-  const [newProgram, setNewProgram] = useState('');
+  const [newProgram, setNewProgram] = useState({ name: '', description: '', start_date: '' });
   const [token, setToken] = useState(localStorage.getItem('token')); // Assuming token is stored in localStorage
-
+  const navigate = useNavigate();
+  
   // Fetch programs when component mounts or token changes
   useEffect(() => {
     if (token) {
@@ -35,15 +37,15 @@ const Programs = () => {
 
   const createProgram = async (e) => {
     e.preventDefault();
-    if (!newProgram.trim()) {
-      alert("Please enter a program name.");
+    if (!newProgram.name.trim() || !newProgram.description.trim() || !newProgram.start_date.trim()) {
+      alert("Please fill in all fields.");
       return;
     }
 
     try {
       const response = await axios.post(
         'https://health-info-system-backend.onrender.com/programs',
-        { name: newProgram },
+        newProgram,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -52,11 +54,17 @@ const Programs = () => {
         }
       );
       console.log('Program created:', response.data);
-      setNewProgram(''); // Clear the input field after successful creation
+      setNewProgram({ name: '', description: '', start_date: '' }); // Clear the input fields after creation
       fetchPrograms(); // Refresh the program list
     } catch (error) {
       console.error('Error creating program:', error.response ? error.response.data : error.message);
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    alert('Logged out successfully');
+    navigate("/");
   };
 
   return (
@@ -74,13 +82,28 @@ const Programs = () => {
       <h2 className="programs-div-h2">Programs Dashboard</h2>
 
       {/* Form to create a new program */}
-      <form onSubmit={createProgram} className="mb-8">
+      <form onSubmit={createProgram} >
         <div className="programs-div-input-div">
           <input
             type="text"
-            value={newProgram}
-            onChange={(e) => setNewProgram(e.target.value)}
-            placeholder="Enter program name"
+            value={newProgram.name}
+            onChange={(e) => setNewProgram({ ...newProgram, name: e.target.value })}
+            placeholder="Program Name"
+            className="programs-div-input"
+            required
+          />
+          <input
+            type="text"
+            value={newProgram.description}
+            onChange={(e) => setNewProgram({ ...newProgram, description: e.target.value })}
+            placeholder="Program Description"
+            className="programs-div-input"
+            required
+          />
+          <input
+            type="date"
+            value={newProgram.start_date}
+            onChange={(e) => setNewProgram({ ...newProgram, start_date: e.target.value })}
             className="programs-div-input"
             required
           />
@@ -90,6 +113,16 @@ const Programs = () => {
         </div>
       </form>
 
+      {/* Logout Button */}
+      <div className="clients-div-logout">
+        <button
+          onClick={handleLogout}
+          className="clients-div-logout-button"
+        >
+          Logout
+        </button>
+      </div>
+
       {/* List of programs */}
       {programs.length === 0 ? (
         <p className="programs-div-p">No programs found.</p>
@@ -97,7 +130,9 @@ const Programs = () => {
         <ul className="programs-div-ul">
           {programs.map((program) => (
             <li key={program.id} className="programs-div-li">
-              <p><span className="programs-div-p">Program:</span> {program.name}</p>
+              <p><span className="programs-div-p">Program Name:</span> {program.name}</p>
+              <p><span className="programs-div-p">Description:</span> {program.description}</p>
+              <p><span className="programs-div-p">Start Date:</span> {program.start_date}</p>
             </li>
           ))}
         </ul>

@@ -6,6 +6,8 @@ import "./Register.css"
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState(''); // Added
+  const [lastName, setLastName] = useState('');   // Added
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -17,6 +19,8 @@ function Register() {
         {
           username,
           password,
+          first_name: firstName, // Added
+          last_name: lastName,   // Added
         },
         {
           headers: {
@@ -38,6 +42,24 @@ function Register() {
     <div className="register-div">
       <form onSubmit={handleRegister} className="register-div-form">
         <h2 className="register-div-h2">Doctor Registration</h2>
+
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          className="register-div-input"
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          className="register-div-input"
+          required
+        />
         
         <input
           type="text"
