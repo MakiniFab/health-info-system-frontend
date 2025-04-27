@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  overflow-x: hidden; 
+}
+
+.clients-div {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 0 0 0px;
+  background-color: #fefeff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  box-sizing: border-box;
+}
+
+  .clients-div-navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px; 
+  }
+  
+  .clients-div-client-link,
+.clients-div-program-link { 
+  font-size: 16px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+}
+
+.clients-div-client-link:hover,
+.clients-div-program-link:hover {
+  background-color: #45a049;
+}
+
+.clients-div-h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 2px;
+    margin-right: 300px;
+  }
+  
+  .clients-div-input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .clients-div-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .clients-div-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .clients-div-button:hover {
+    background-color: #45a049;
+  }
+  
+  form.mb-8 {
+    margin-bottom: 32px;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .space-x-4 {
+    gap: 16px;
+  }
+  
+  .clients-div-input[type="text"], .clients-div-input[type="number"] {
+    width: 48%;
+  }
+  
+  .clients-div-input[type="text"]:focus, .clients-div-input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+.clients-div-logout {
+  position: fixed;
+  bottom: 10px;
+  right: 8px;
+}
+
+.clients-div-logout-button {
+  padding: 10px 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 90%;
+}
+
+.clients-div-logout-button:hover {
+  background-color: #e53935;
+}
+
+.clients-div-form {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .clients-div-input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-size: 14px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgb(230, 230, 236);
+  }
+  
+  .clients-div-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .clients-div-button:hover {
+    background-color: #45a049;
+  }
+
+  .clients-div-input-search {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    color: #333; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .clients-div-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .clients-div-li {
+    background-color: #5238e6; 
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .clients-div-li:hover {
+    background-color: #4a30e4;
+    transform: translateY(-3px);
+  }
+  
+  .clients-div-li p {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 5px 0;
+  }
+  
+  .clients-div-li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .clients-div-li a:hover {
+    text-decoration: underline;
+  }
+  
+  

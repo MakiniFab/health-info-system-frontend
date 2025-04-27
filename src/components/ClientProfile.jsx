@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // Use to get dynamic params from the URL
+import { useParams } from 'react-router-dom'; 
+import "./ClientProfile.css"
 
 const ClientProfile = () => {
   const { clientId } = useParams(); // Get clientId from the URL
@@ -111,62 +112,65 @@ const ClientProfile = () => {
   }
 
   return (
-    <div>
-      <h2>Client Profile</h2>
-      <div>
-        <p><strong>Name:</strong> {client.name}</p>
-        <p><strong>Age:</strong> {client.age}</p>
-        <p><strong>Programs:</strong> 
+    <div className='profile-div' >
+      <h2 className='profile-div-h2' >Client Profile</h2>
+      <div className='profile-div-profile-details' >
+        <p className='profile-div-name' ><strong>Name:</strong> {client.name}</p>
+        <p className='profile-div-age' ><strong>Age:</strong> {client.age}</p>
+        <p className='profile-div-programs' ><strong>Programs:</strong> 
           {client.programs.length > 0 ? client.programs.join(", ") : "No programs assigned"}
         </p>
-        <div><strong>Outcomes:</strong> 
+        <div className='profile-div-outcomes' ><strong>Outcomes:</strong> 
           {client.outcomes.length > 0 ? (
             client.outcomes.map((outcome, index) => (
-              <div key={index}>
-                <div><strong>Outcome:</strong> {outcome.outcome}</div>
-                <div><strong>Notes:</strong> {outcome.notes}</div>
+              <div key={index} className='profile-div-outcome-list'>
+                <div className='profile-div-outcome' ><strong>Outcome:</strong> {outcome.outcome}</div>
+                <div className='profile-div-note' ><strong>Notes:</strong> {outcome.notes}</div>
               </div>
             ))
           ) : "No outcomes available"}
         </div>
       </div>
 
-      <h3>Enroll in a Program</h3>
-      <div>
-        <label htmlFor="programSelect">Select Program:</label>
+      <h3 className='profile-div-h3' >Enroll in a Program</h3>
+      <div className='profile-div-enroll' >
+        <label htmlFor="programSelect" className='profile-div-label'>Select Program:</label>
         <select
           id="programSelect"
           value={selectedProgram}
           onChange={(e) => setSelectedProgram(e.target.value)}
+          className='profile-div-select'
         >
-          <option value="">Select a program</option>
+          <option value=""  className='profile-div-option'>Select a program</option>
           {programs.map((program) => (
-            <option key={program.id} value={program.id}>
+            <option key={program.id} value={program.id} className='profile-div-option'>
               {program.name}
             </option>
           ))}
         </select>
-        <button onClick={enrollClientInProgram}>Enroll</button>
+        <button className='profile-div-enroll-button' onClick={enrollClientInProgram}>Enroll</button>
       </div>
 
-      <h3>Add Outcome</h3>
-      <div>
-        <label htmlFor="outcomeInput">Outcome:</label>
+      <h3 className='profile-div-outcome-h3' >Add Outcome</h3>
+      <div className='profile-div-outcome-div' >
+        <label htmlFor="outcomeInput" className='profile-div-outcome-div-label'>Outcome:</label>
         <input
           type="text"
           id="outcomeInput"
           value={outcome}
           onChange={(e) => setOutcome(e.target.value)}
+          className='profile-div-outcome-div-input'
         />
 
-        <label htmlFor="notesInput">Notes:</label>
+        <label htmlFor="notesInput" className='profile-div-outcome-div-label'>Notes:</label>
         <textarea
           id="notesInput"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
+          className='profile-div-outcome-div-textarea'
         ></textarea>
 
-        <button onClick={addOutcome}>Add Outcome</button>
+        <button className='profile-div-outcome-div-button' onClick={addOutcome}>Add Outcome</button>
       </div>
     </div>
   );

@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+  }
+  
+  .profile-div {
+    padding: 10px;
+    width: 700px;
+    margin: 5px auto;
+    background: linear-gradient(145deg, #7eb6ee, #5f97d5);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    height: 95vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #bbb #f0f0f0;
+  }
+  
+  .profile-div::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .profile-div::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+  }
+  
+  .profile-div::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  
+  .profile-div-h2 {
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+    margin-left: -300px;
+  }
+  
+  .profile-div-profile-details {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.8s ease-in;
+  }
+  
+  .profile-div-name,
+  .profile-div-age,
+  .profile-div-programs {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .profile-div-name strong,
+  .profile-div-age strong,
+  .profile-div-programs strong {
+    color: #4CAF50;
+  }
+  
+  .profile-div-programs {
+    margin-top: 20px;
+  }
+  
+  .profile-div-outcomes {
+    margin-top: 20px;
+  }
+  
+  .profile-div-outcomes strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #4CAF50;
+  }
+  
+  .profile-div-outcome-list {
+    background-color: #e3e6f3;
+    border-left: 4px solid #4CAF50;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    transition: transform 0.3s;
+  }
+  
+  .profile-div-outcome-list:hover {
+    transform: translateX(5px);
+  }
+  
+  .profile-div-outcome,
+  .profile-div-note {
+    font-size: 16px;
+    color: #444;
+    margin: 6px 0;
+  }
+  
+  .profile-div-outcome strong,
+  .profile-div-note strong {
+    color: #555;
+  }
+  
+  /* Form Section */
+  .profile-div-enroll,
+  .profile-div-outcome-div {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeInUp 0.9s ease-in;
+  }
+  
+  .profile-div-label,
+  .profile-div-outcome-div-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .profile-div-select,
+  .profile-div-outcome-div-input,
+  .profile-div-outcome-div-textarea {
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 90%;
+    transition: border-color 0.3s;
+  }
+  
+  .profile-div-select:focus,
+  .profile-div-outcome-div-input:focus,
+  .profile-div-outcome-div-textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .profile-div-enroll-button,
+  .profile-div-outcome-div-button {
+    padding: 14px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .profile-div-enroll-button:hover,
+  .profile-div-outcome-div-button:hover {
+    background: linear-gradient(135deg, #45a049, #3e8e41);
+    transform: scale(1.03);
+  }
+  
+  .profile-div-option {
+    font-size: 16px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }  

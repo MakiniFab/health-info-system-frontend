@@ -5,6 +5,7 @@ import Register from './components/Auth/Register';
 import Clients from './components/Clients';
 import Programs from './components/Programs';
 import ClientProfile from './components/ClientProfile';
+import Logs from './components/Logs';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/clients" element={<Clients />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/clients/:clientId" element={<ClientProfile />} />
+          <Route path="/logs" element={<Logs/>} />
         </Routes>
       </div>
     </Router>

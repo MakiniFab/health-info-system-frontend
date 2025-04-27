@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
 
 function Login() {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -24,9 +25,14 @@ function Login() {
       );
 
       const token = response.data.access_token;
+      const username = credentials.username; // Capture the username from the credentials
+
+      // Store token and username in localStorage
       localStorage.setItem('token', token);
+      localStorage.setItem('username', username);  // Save username to localStorage
+
       alert('Login successful!');
-      navigate("/clients")
+      navigate("/clients");
     } catch (error) {
       console.error('Login Error:', error);
       alert('Login failed. Check your username and password.');
@@ -34,9 +40,9 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-2xl mb-4 text-center font-bold">Doctor Login</h2>
+    <div className="login-div">
+      <form onSubmit={handleLogin} className="login-div-form">
+        <h2 className="login-div-h2">Doctor Login</h2>
 
         <input
           type="text"
@@ -44,7 +50,7 @@ function Login() {
           placeholder="Username"
           value={credentials.username}
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
+          className="login-div-input"
           required
         />
 
@@ -54,21 +60,21 @@ function Login() {
           placeholder="Password"
           value={credentials.password}
           onChange={handleChange}
-          className="w-full mb-4 p-2 border rounded"
+          className="login-div-input"
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="login-div-button"
         >
           Login
         </button>
 
         {/* Link to the registration page */}
-        <p className="text-center text-sm mt-4">
+        <p className="login-div-p">
           Not registered yet?{' '}
-          <Link to="/register" className="text-blue-600 hover:underline">
+          <Link to="/register" className="login-div-link">
             Sign up here
           </Link>
         </p>

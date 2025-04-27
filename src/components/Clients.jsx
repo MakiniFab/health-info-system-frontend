@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import for navigation
+import { Link, useNavigate } from 'react-router-dom';
+import "./Clients.css"
 
 const Clients = () => {
   const [clients, setClients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [newClient, setNewClient] = useState({ name: '', age: '' });
   const token = localStorage.getItem('token'); // Get token once
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
 
   useEffect(() => {
     if (token) {
       fetchClients();
+    } else {
+      navigate("/login"); // If no token, redirect to login
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const fetchClients = async () => {
     try {
@@ -55,28 +59,26 @@ const Clients = () => {
     client.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from localStorage
+    alert('Logged out successfully');
+    navigate("/"); // Redirect to login page
+  };
+
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="clients-div">
       {/* Navigation buttons */}
-      <div className="flex space-x-4 mb-6">
+      <div className="clients-div-navigation-buttons">
         <Link to="/clients">
-          <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Clients</button>
+          <button className="clients-div-client-link">Clients</button>
         </Link>
         <Link to="/programs">
-          <button className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">Programs</button>
+          <button className="clients-div-program-link">Programs</button>
         </Link>
       </div>
 
-      <h2 className="text-2xl font-bold mb-4">Clients Dashboard</h2>
-
-      {/* Search bar */}
-      <input
-        type="text"
-        placeholder="Search clients by name..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full mb-6 p-2 border rounded"
-      />
+      <h2 className="clients-div-h2">Clients Dashboard</h2>
 
       {/* Form to create a new client */}
       <form onSubmit={createClient} className="mb-8">
@@ -86,7 +88,7 @@ const Clients = () => {
             value={newClient.name}
             onChange={(e) => setNewClient({ ...newClient, name: e.target.value })}
             placeholder="Name"
-            className="flex-1 p-2 border rounded"
+            className="clients-div-input"
             required
           />
           <input
@@ -94,24 +96,42 @@ const Clients = () => {
             value={newClient.age}
             onChange={(e) => setNewClient({ ...newClient, age: e.target.value })}
             placeholder="Age"
-            className="flex-1 p-2 border rounded"
+            className="clients-div-input"
             required
           />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          <button type="submit" className="clients-div-button">
             Add Client
           </button>
         </div>
       </form>
 
+      <input
+        type="text"
+        placeholder="Search clients by name..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="clients-div-input-search"
+      />
+
+      {/* Logout Button */}
+      <div className="clients-div-logout">
+        <button
+          onClick={handleLogout}
+          className="clients-div-logout-button"
+        >
+          Logout
+        </button>
+      </div>
+
       {/* List of clients */}
       {filteredClients.length === 0 ? (
-        <p className="text-gray-500">No clients found.</p>
+        <p className="clients-div-p">No clients found.</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="clients-div-ul">
           {filteredClients.map((client) => (
-            <li key={client.id} className="p-4 border rounded shadow-sm">
+            <li key={client.id} className="clients-div-li">
               <Link to={`/clients/${client.id}`}>
-                <p className="font-semibold">{client.name}</p>
+                <p className="clients-div-p">{client.name}</p>
               </Link>
               <p>Age: {client.age}</p>
             </li>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "./Register.css"
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -34,16 +35,16 @@ function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleRegister} className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-2xl mb-4 text-center font-bold">Doctor Registration</h2>
+    <div className="register-div">
+      <form onSubmit={handleRegister} className="register-div-form">
+        <h2 className="register-div-h2">Doctor Registration</h2>
         
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full mb-4 p-2 border rounded"
+          className="register-div-input"
           required
         />
         
@@ -52,13 +53,13 @@ function Register() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full mb-4 p-2 border rounded"
+          className="register-div-input"
           required
         />
         
         <button
           type="submit"
-          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+          className="register-div-button"
         >
           Register
         </button>
