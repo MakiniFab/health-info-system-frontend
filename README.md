@@ -60,6 +60,7 @@ Build the optimized production files:
 npm run build
 Serve the dist/ folder using a static hosting service (like Render, Netlify, Vercel).
 On Render, set the build command as npm run build and start command as npm run preview or serve the dist/ folder using a static site server.
+
 Link to my website "https://health-info-system-frontend.onrender.com"
 
 🔐 Security Considerations
