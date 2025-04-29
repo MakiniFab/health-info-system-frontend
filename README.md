@@ -30,6 +30,7 @@ All API routes are secured with JWT and follow RESTful principles.
 Backend live API URL: https://health-info-system-backend.onrender.com
 
 Link to backend git repository: https://github.com/MakiniFab/health-info-system-backend.git
+Demo video: src/assets/presentatin video
 
 🛠 Technologies Used
 
