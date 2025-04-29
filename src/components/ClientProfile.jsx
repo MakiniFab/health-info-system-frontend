@@ -121,7 +121,7 @@ const ClientProfile = () => {
     <div className='profile-div' >
       <h2 className='profile-div-h2' >Client Profile</h2>
       <div className='profile-div-profile-details' >
-        <p className='profile-div-name' ><strong>Name:</strong> {client.name}</p>
+        <p className='profile-div-name' ><strong>Name:</strong> {client.first_name} {client.last_name}</p>
         <p className='profile-div-age' ><strong>Age:</strong> {client.age}</p>
         <p className='profile-div-programs' ><strong>Programs:</strong> 
           {client.programs.length > 0 ? client.programs.join(", ") : "No programs assigned"}

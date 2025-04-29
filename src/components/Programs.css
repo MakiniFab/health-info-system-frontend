@@ -100,13 +100,14 @@ body {
   }
   
   .programs-div-li {
-    background-color: #5238e6;
+    background-color: #b3a8f3;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
+    width: 400px;
   }
   
   .programs-div-li:hover {
@@ -116,12 +117,12 @@ body {
   
   .programs-div-li p {
     font-size: 16px;
-    color: #ffffff;
+    color: #0e0d0d;
     margin: 5px 0;
   }
   
   .programs-div-p {
     font-size: 16px;
-    color: #ffffff;
+    color: #070707;
     margin: 5px 0;
   }  
